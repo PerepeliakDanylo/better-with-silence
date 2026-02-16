@@ -30,7 +30,7 @@ P W P
 
 ## Dependencies
 
-- [Babric](https://github.com/Turnip-Labs/babric-instance-fabric/releases) (Fabric loader for BTA)
+- [Babric](https://github.com/Turnip-Labs/bta-fabric-instance-repo/releases) (Fabric loader for BTA)
 - [HalpLibe](https://github.com/Turnip-Labs/bta-halplibe/releases) 5.4.0+
 
 ## Installation
