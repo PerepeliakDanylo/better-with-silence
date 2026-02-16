@@ -1,0 +1,46 @@
+{
+	"schemaVersion": 1,
+	"id": "betterwithsilence",
+	"version": "${version}",
+	"name": "Better With Silence",
+	"description": "Adds an Acoustic Dampener block that silences all sounds within an 8-block radius.",
+	"authors": [
+		"Redzi_"
+	],
+	"contact": {
+		"homepage": "",
+		"sources": ""
+	},
+	"icon": "icon.png",
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dan.betterwithsilence.BetterWithSilence"
+		],
+		"beforeGameStart": [
+			"dan.betterwithsilence.BetterWithSilence"
+		],
+		"afterGameStart": [
+			"dan.betterwithsilence.BetterWithSilence"
+		],
+		"recipesReady": [
+			"dan.betterwithsilence.BetterWithSilence"
+		],
+		"initModels": [
+			"dan.betterwithsilence.BetterWithSilenceModels"
+		]
+	},
+	"mixins": [
+		"betterwithsilence.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=${fabricloader}",
+		"halplibe": ">=${halplibe}",
+		"minecraft": "*",
+		"java": ">=${java}"
+	},
+	"suggests": {
+		"modmenu": ">=${modmenu}"
+	}
+}
