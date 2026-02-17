@@ -3,6 +3,7 @@ package dan.betterwithsilence.mixin;
 import dan.betterwithsilence.SoundDampener;
 import dan.betterwithsilence.block.BlockLogicAcousticDampener;
 import net.minecraft.core.entity.Entity;
+import net.minecraft.core.entity.monster.Enemy;
 import net.minecraft.core.sound.SoundCategory;
 import net.minecraft.core.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -35,6 +36,11 @@ public abstract class WorldSoundMixin {
 			return;
 		}
 
+		// Allow ALL sounds from hostile mobs (including step sounds from tiny slimes)
+		if (entity instanceof Enemy) {
+			return;
+		}
+
 		if (SoundDampener.isHostileMobSound(soundName)) {
 			return;
 		}
@@ -52,6 +58,11 @@ public abstract class WorldSoundMixin {
 	 */
 	@Inject(method = "playSoundAtEntity", at = @At("HEAD"), cancellable = true)
 	private void bws_onPlaySoundAtEntity(Entity excluded, Entity source, String soundName, float volume, float pitch, CallbackInfo ci) {
+		// Allow ALL sounds from hostile mobs (covers tiny slime step sounds, etc.)
+		if (source instanceof Enemy) {
+			return;
+		}
+
 		if (SoundDampener.isHostileMobSound(soundName)) {
 			return;
 		}
